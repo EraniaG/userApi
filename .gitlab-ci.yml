@@ -7,7 +7,7 @@ building:
   script:
     - echo "Construir imagen..."
     - mkdir target2
-    - touch api.jar
+    - touch target2/api.jar
   artifacts:
     paths:
       - target2/
