@@ -39,8 +39,6 @@ class UserApiServiceImplTest {
 
     @BeforeEach
     void setUp() {
-//        userRepositoryMock = Mockito.mock(UserRepository.class);
-//        userApiService = new UserApiServiceImpl(userRepositoryMock, jwtUtils);
         init();
     }
 

@@ -47,7 +47,7 @@ public class AuthController {
     }
 
     /**
-     * Endpint para solicitar el inicio de sesión usando email y password.
+     * Endpoint para solicitar el inicio de sesión usando email y password.
      * Se usa Spring Security para la validación de los datos y posteriormente se le genera un token al
      * usuario. Dicho token se persistirá en los datos del usuario, y le permitirá acceder a los otros endpoints.
      *
