@@ -1,4 +1,4 @@
-stage:
+stages:
   - build
   - test
 
@@ -9,7 +9,7 @@ building:
     - mkdir target2
     - touch api.jar
   artifacts:
-    path:
+    paths:
       - target2/
 
 testing:
