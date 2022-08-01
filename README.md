@@ -39,7 +39,7 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
 
  ```bash
    cd apiUser\target
-   java -jar apiUser-0.0.1.jar
+   java -jar userApi-0.0.1.jar
  ```
 
 3. Consumir API
