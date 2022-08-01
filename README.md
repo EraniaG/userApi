@@ -45,7 +45,17 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
 3. Consumir API
 
 * Desde un navegador web o utilizar Postman para entrar a la url http://localhost:8080/
+  
+
+  ![img.png](imagesReadme/img.png)
+
+  
 * Crear usuario Admistrador: (POST) http://localhost:8080/init
+  
+
+  ![img_1.png](imagesReadme/img_init.png)
+  
+
 * Iniciar sesión: (POST) http://localhost:8080/login
    ```bash
   {
@@ -53,11 +63,29 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
       "password": "Useradmin159"
   }
    ```
-* Una vez que inicia sesión, se le asigna un token al usuario que le permite consumir los otros recursos. El token
-  asignado persiste junto con el usuario.
+ 
 
-* Obtener catálogo de usuarios: (Get) http://localhost:8080/user/list
-* Registrar usuario: (Post) http://localhost:8080/user/save
+  ![img.png](imagesReadme/img_login.png)
+  
+
+* Una vez que inicia sesión, se le asigna un token al usuario que le permite consumir los otros recursos. El token
+  asignado persiste junto con el usuario. Debe copiar dicho token ya que lo necesitará para realizar las otras peticiones.
+  
+
+* Para realizar peticiones a los paths que necesita autenticación y autorización, debe agregar 
+  un Header de tipo Authorization cuyo valor será "Bearer" + " " + "token"
+  
+
+  ![img_1.png](imagesReadme/img_auth.png)
+  
+
+* Obtener catálogo de usuarios (Necesita Header de tipo Authorization): (Get) http://localhost:8080/user/list
+  
+  
+  ![img.png](imagesReadme/img_list_user.png)
+
+
+* Registrar usuario (Necesita Header de tipo Authorization): (Post) http://localhost:8080/user/save
    ```bash
       {
         "name": "usertest",
@@ -67,29 +95,51 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
 					{
 					"number": "888888",
 					"citycode": "3",
-					"contrycode": "23"
+					"countrycode": "23"
 					}
 				]
       }
    ```
-* Modificar usuario: (Put) http://localhost:8080/user/{prId}
+  
+
+  ![img.png](imagesReadme/img_save.png)
+  
+  
+* Modificar usuario (Necesita Header de tipo Authorization): (Put) http://localhost:8080/user/{prId}
    ```bash
       {
-        "name": "usertest",
+        "name": "usertestchange",
         "password": "Usertest8520",
         "phones": [
 					{
 					"number": "888888",
 					"citycode": "3",
-					"contrycode": "23"
+					"countrycode": "23"
 					}
 				]
       }
    ```
-* Desactivar usuario: (Put) http://localhost:8080/user/desactivate/{prId}
-* Activar usuario: (Put) http://localhost:8080/user/activate/{prId}
+  
+
+  ![img_2.png](imagesReadme/img_update.png)
+  
+
+* Desactivar usuario (Necesita Header de tipo Authorization): (Put) http://localhost:8080/user/desactivate/{prId}
+  
+
+  ![img.png](imagesReadme/img_desactivate.png)
+  
+  
+* Activar usuario (Necesita Header de tipo Authorization): (Put) http://localhost:8080/user/activate/{prId}
+  
+
+  ![img.png](imagesReadme/img_activate.png)
+
 
 ### Documentación Swagger
 
-http://localhost:8080/v2/api-docs
+* Ver documentación (Necesita Header de tipo Authorization): http://localhost:8080/v2/api-docs
+
+
+  ![img.png](imagesReadme/img_docs.png)
 

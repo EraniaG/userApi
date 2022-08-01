@@ -95,6 +95,7 @@ public class UserController {
         if (prUserDto.getEmail() != null && !prUserDto.getEmail().equals(prUserDto.getEmail())) {
             throw new UserApiBussinesException("cannot update email", HttpStatus.CONFLICT);
         }
+        prUserDto.setId(prId);
         return ResponseEntity.ok(userService.updateUser(prUserDto));
     }
 
