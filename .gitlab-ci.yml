@@ -1,0 +1,19 @@
+stages:
+  - build
+  - test
+
+building:
+  stage: build
+  script:
+    - echo "Construir imagen..."
+    - mkdir target2
+    - touch target2/api.jar
+  artifacts:
+    paths:
+      - target2/
+
+testing:
+  stage: test
+  script:
+    - echo "Testing..."
+    - test -f "target2/api.jar"
