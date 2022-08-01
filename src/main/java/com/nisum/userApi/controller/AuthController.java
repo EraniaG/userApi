@@ -76,9 +76,16 @@ public class AuthController {
         return ResponseEntity.ok("{ \"token\": \"" + token + "\" }");
     }
 
+    /**
+     * Método para verificar si el usuario admin ya existe en la base de datos en memoria, si no existe se registrará.
+     *
+     * @return objeto de tipo UserDto con los datos de usuario administrador, si ya existía en la base de datos,
+     * buscará los datos del registro en la base de datos,
+     * sino se guardará el registro de usuario admin y retornará los datos de dicho registro.
+     */
     @RequestMapping(method = RequestMethod.POST, value = "/init",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserDto> saveUser() throws UserApiBussinesException {
+    public ResponseEntity<UserDto> saveUser() {
         User user = userApiService.getUserByEmail("useradmin@gmail.com").orElse(null);
         if (user == null) {
             UserDto userAdmin = new UserDto();

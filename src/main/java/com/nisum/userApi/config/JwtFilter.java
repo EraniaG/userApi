@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Clase de tipo Filtro para verificar si la petición tiene el token correspondiente y si este es válido.
+ */
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
