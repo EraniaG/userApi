@@ -79,25 +79,25 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
   ![img_1.png](imagesReadme/img_auth.png)
   
 
-* Obtener catálogo de usuarios (Necesita Header de tipo Authorization): (Get) http://localhost:8080/user/list
+* Obtener catálogo de usuarios (Necesita Header de tipo Authorization): (GET) http://localhost:8080/user/list
   
   
   ![img.png](imagesReadme/img_list_user.png)
 
 
-* Registrar usuario (Necesita Header de tipo Authorization): (Post) http://localhost:8080/user/save
+* Registrar usuario (Necesita Header de tipo Authorization): (POST) http://localhost:8080/user/save
    ```bash
       {
         "name": "usertest",
         "email": "usertest@gmail.com",
         "password": "Usertest852",
         "phones": [
-					{
-					"number": "888888",
-					"citycode": "3",
-					"countrycode": "23"
-					}
-				]
+		{
+			"number": "888888",
+			"citycode": "3",
+			"countrycode": "23"
+		}
+	]
       }
    ```
   
@@ -105,18 +105,18 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
   ![img.png](imagesReadme/img_save.png)
   
   
-* Modificar usuario (Necesita Header de tipo Authorization): (Put) http://localhost:8080/user/{prId}
+* Modificar usuario (Necesita Header de tipo Authorization): (PUT) http://localhost:8080/user/{prId}
    ```bash
       {
         "name": "usertestchange",
         "password": "Usertest8520",
         "phones": [
-					{
-					"number": "888888",
-					"citycode": "3",
-					"countrycode": "23"
-					}
-				]
+		{
+			"number": "888881",
+			"citycode": "3",
+			"countrycode": "23"
+		}
+	]
       }
    ```
   
@@ -124,13 +124,13 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
   ![img_2.png](imagesReadme/img_update.png)
   
 
-* Desactivar usuario (Necesita Header de tipo Authorization): (Put) http://localhost:8080/user/desactivate/{prId}
+* Desactivar usuario (Necesita Header de tipo Authorization): (PUT) http://localhost:8080/user/desactivate/{prId}
   
 
   ![img.png](imagesReadme/img_desactivate.png)
   
   
-* Activar usuario (Necesita Header de tipo Authorization): (Put) http://localhost:8080/user/activate/{prId}
+* Activar usuario (Necesita Header de tipo Authorization): (PUT) http://localhost:8080/user/activate/{prId}
   
 
   ![img.png](imagesReadme/img_activate.png)
@@ -138,7 +138,7 @@ Desarrollar una aplicación que exponga una API RESTful de creación de usuarios
 
 ### Documentación Swagger
 
-* Ver documentación (Necesita Header de tipo Authorization): http://localhost:8080/v2/api-docs
+* Ver documentación (Necesita Header de tipo Authorization): (GET) http://localhost:8080/v2/api-docs
 
 
   ![img.png](imagesReadme/img_docs.png)
