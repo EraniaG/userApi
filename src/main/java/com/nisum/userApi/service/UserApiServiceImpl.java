@@ -4,6 +4,7 @@ import com.nisum.userApi.config.JwtUtils;
 import com.nisum.userApi.exception.UserApiBussinesException;
 import com.nisum.userApi.model.dto.UserDto;
 import com.nisum.userApi.model.dto.UserDtoSaved;
+import com.nisum.userApi.model.entity.Phone;
 import com.nisum.userApi.model.entity.User;
 import com.nisum.userApi.repository.UserRepository;
 import com.nisum.userApi.util.RegExpression;
@@ -15,10 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -195,6 +193,14 @@ public class UserApiServiceImpl implements UserApiService {
      */
     public UserDto updateUser(final UserDto prUserUpdate) throws UserApiBussinesException {
         User user = this.getUserById(prUserUpdate.getId());
+
+        if (user.getPhones() == null) {
+            user.setPhones(null);
+        }else{
+            Set<Phone> phones = new LinkedHashSet<>();
+            prUserUpdate.getPhones().forEach(x -> phones.add(new Phone(user, x)));
+            user.setPhones(phones);
+        }
 
         if (prUserUpdate.getEmail() != null && !user.getEmail().equals(prUserUpdate.getEmail())) {
             throw new UserApiBussinesException("cannot update email", HttpStatus.CONFLICT);
