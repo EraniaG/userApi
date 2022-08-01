@@ -1,4 +1,5 @@
 package com.nisum.userApi.config;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,6 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * Clase utilitaria para administrar token de tipo JWT, permite generar y validar el token.
+ */
 @Service
 public class JwtUtils {
     private String secret = "javanisum";
@@ -26,6 +30,7 @@ public class JwtUtils {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
+
     private Claims extractAllClaims(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }

@@ -9,6 +9,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
+/**
+ * Clase que permite generar documentación de los paths que le indiquemos.
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
